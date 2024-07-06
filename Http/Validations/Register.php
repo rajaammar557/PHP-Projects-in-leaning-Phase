@@ -1,17 +1,27 @@
 <?php
 
-namespace Http\Forms;
+namespace Http\Validations;
 
 use Core\Validator;
 use Core\ValidationException;
+use Http\Validations\Validation;
 
-class RegisterForm
+class Register extends Validation
 {
 
     protected $errors = [];
 
     public function __construct(public array $attributes)
     {
+        $this->errors['name'] =
+            Validator::required($attributes['name'], 'name') ??
+            Validator::min($attributes['name'], 3, 'name') ??
+            Validator::max($attributes['name'], 55, 'name') ??
+            false;
+
+        if ($this->errors['name'] == false) {
+            unset($this->errors['name']);
+        }
 
         $this->errors['email'] =
             Validator::required($attributes['email'], 'email') ??
@@ -29,34 +39,5 @@ class RegisterForm
         if ($this->errors['password'] == false) {
             unset($this->errors['password']);
         }
-    }
-
-    public static function validate($attributes)
-    {
-        $instance = new static($attributes);
-
-        return $instance->failed() ? $instance->throw() : $instance;
-    }
-
-    public function throw()
-    {
-        ValidationException::throw($this->errors(), $this->attributes);
-    }
-
-    public function failed()
-    {
-
-        return empty(!$this->errors);
-    }
-
-    public function errors()
-    {
-        return $this->errors;
-    }
-
-    public function error($field, $error)
-    {
-        $this->errors[$field] = $error;
-        return $this;
     }
 }

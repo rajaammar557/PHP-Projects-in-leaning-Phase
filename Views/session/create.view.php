@@ -57,4 +57,5 @@
 
     </div>
 </main>
+
 <?php require base_path("Views/partials/footer.php") ?>

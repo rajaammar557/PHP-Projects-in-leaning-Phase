@@ -6,10 +6,9 @@ use Core\Auth;
 use Core\ValidationException;
 use Core\Validator;
 
-class LoginForm
+class LoginForm extends Validation
 {
 
-	protected $errors = [];
 
 	public function __construct(public array $attributes)
 	{
@@ -30,34 +29,5 @@ class LoginForm
 		if ($this->errors['password'] == false) {
 			unset($this->errors['password']);
 		}
-	}
-
-	public static function validate($attributes)
-	{
-		$instance = new static($attributes);
-
-		return $instance->failed() ? $instance->throw() : $instance;
-	}
-
-	public function throw()
-	{
-		ValidationException::throw($this->errors(), $this->attributes);
-	}
-
-	public function failed()
-	{
-
-		return empty(!$this->errors);
-	}
-
-	public function errors()
-	{
-		return $this->errors;
-	}
-
-	public function error($field, $error)
-	{
-		$this->errors[$field] = $error;
-		return $this;
 	}
 }

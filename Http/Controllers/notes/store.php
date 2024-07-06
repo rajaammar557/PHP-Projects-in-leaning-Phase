@@ -21,4 +21,4 @@ $db->query(
         'body' => $_POST['body']
     ]
 );
-header('location: /notes');
+redirect('/notes');

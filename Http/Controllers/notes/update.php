@@ -19,10 +19,10 @@ $note = $db->query(
 
 $errors = [];
 
-
 $form = Notes::validate($attributes = [
     'body' => $_POST['body'],
 ]);
+
 authorize($note['user_id'] === $currentUserId);
 
 $db->query("UPDATE notes SET body = :body WHERE id = :id", [
@@ -30,6 +30,5 @@ $db->query("UPDATE notes SET body = :body WHERE id = :id", [
     'id' => $_POST['id']
 ]);
 
-header("location: /note?id={$_POST['id']}");
+redirect("/note?id={$_POST['id']}");
 
-die();

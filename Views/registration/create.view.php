@@ -17,7 +17,7 @@
                     <div>
                         <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
                         <div class="mt-2">
-                            <input id="name" name="name" type="name" autocomplete="name" class="<?= $formInput ?>" value="<?= $_POST['name'] ?? null ?>">
+                            <input id="name" name="name" type="name" autocomplete="name" class="<?= $formInput ?>" value="<?= old('name') ?>">
                         </div>
 
                         <?php if (isset($errors['name'])) : ?>
@@ -29,7 +29,7 @@
                     <div>
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
                         <div class="mt-2">
-                            <input id="email" name="email" type="email" autocomplete="email" class="<?= $formInput ?>" value="<?= $_POST['email'] ?? null ?>" >
+                            <input id="email" name="email" type="email" autocomplete="email" class="<?= $formInput ?>" value="<?= old('email') ?>" >
                         </div>
 
                         <?php if (isset($errors['email'])) : ?>
@@ -64,12 +64,11 @@
 
                 <p class="mt-10 text-center text-sm text-gray-500">
                     Already Register?
-                    <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign in</a>
+                    <a href="/login" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign in</a>
                 </p>
             </div>
         </div>
 
     </div>
 </main>
-
 <?php require base_path("Views/partials/footer.php") ?>
