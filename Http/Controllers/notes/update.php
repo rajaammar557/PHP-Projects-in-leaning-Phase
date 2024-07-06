@@ -19,26 +19,11 @@ $note = $db->query(
 
 $errors = [];
 
-// $errors['body'] =
-//     Validator::required($_POST['body'], 'body') ??
-//     Validator::max($_POST['body'], 999, 'body') ??
-//     false;
-// if ($errors['body'] == false) {
-//     unset($errors['body']);
-// }
 
 $form = Notes::validate($attributes = [
     'body' => $_POST['body'],
 ]);
 authorize($note['user_id'] === $currentUserId);
-
-// if (!empty($errors)) {
-//     return view('notes/edit.view.php', [
-//         'heading' => 'Edit Note',
-//         'errors' => $errors,
-//         'note' => $note
-//     ]);
-// }
 
 $db->query("UPDATE notes SET body = :body WHERE id = :id", [
     'body' => $_POST['body'],
