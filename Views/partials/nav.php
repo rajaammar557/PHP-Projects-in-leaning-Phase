@@ -75,7 +75,8 @@
 
             <?php if ($_SESSION['user'] ?? false) : ?>
                 <a href="/notes" class="block rounded-md px-3 py-2 text-base <?= urlIs('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?>" <?= urlIs('/notes') ? 'aria-current="page"' : null ?>>Notes</a>
-            <?php endif ?>
+                <a href="/shortner" class="block rounded-md px-3 py-2 text-base <?= urlIs('/shortner') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?>" <?= urlIs('/shortner') ? 'aria-current="page"' : null ?>>Url Shortner</a>
+                <?php endif ?>
 
             <a href="/contact" class="block rounded-md px-3 py-2 text-base <?= urlIs('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?>" <?= urlIs('/contact') ? 'aria-current="page"' : null ?>>Contact</a>
         </div>
