@@ -33,6 +33,7 @@ class RegisterationValidation extends Validation
 
         $this->errors['password'] =
             Validator::required($attributes['password'], 'password') ??
+            Validator::min($attributes['password'], 6, 'password') ??
             false;
 
         if ($this->errors['password'] == false) {
