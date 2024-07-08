@@ -25,6 +25,10 @@ Place the cloned directory in the htdocs directory of XAMPP (or the www director
 #### Import database.sql
 #### The defualt database is learn_php
 #### if you want some change go to config.
+
+### Defualt user details
+#### Email: admain@gmail.com
+#### password admin
 Start the Apache server from the XAMPP or WAMP control panel.
 
 Access the project by navigating to http://localhost/your-preferred-directory-name in your web browser.
