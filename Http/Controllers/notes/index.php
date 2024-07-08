@@ -6,7 +6,7 @@ use Core\Database;
 $db = App::resolve(Database::class);
 
 $notes = $db->query(
-    "SELECT * FROM notes where user_id = :user_id ",
+    "SELECT * FROM notes where user_id = :user_id order by id desc",
     ['user_id' => $_SESSION['user']['id']]
 )->get();
 

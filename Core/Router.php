@@ -59,11 +59,12 @@ class Router
         foreach ($this->routes as $route) {
 
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-
                 Middleware::resolve($route['middleware']);
                 return require base_path('Http/Controllers/' . $route['controller']);
             }
         }
+        require base_path('/Http/Controllers/url_shortner/shortner.php');
+
         abort();
     }
 }

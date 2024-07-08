@@ -1,5 +1,4 @@
 <?php
-
 $router->get('/', 'index.php');
 $router->get('/about', 'about.php');
 $router->get('/contact', 'contact.php');
@@ -15,6 +14,14 @@ $router->get('/note/edit', 'notes/edit.php')->only('auth');
 $router->patch('/note', 'notes/update.php')->only('auth');
 
 $router->delete('/note', 'notes/destroy.php')->only('auth');
+
+//For Url Shortner
+$router->get('/shortner', 'url_shortner/index.php')->only('auth');
+
+$router->get('/shortner/create', 'url_shortner/create.php')->only('auth');
+$router->post('/shortner', 'url_shortner/store.php')->only('auth');
+
+$router->delete('/shortner', 'url_shortner/destroy.php')->only('auth');
 
 //For Login system
 

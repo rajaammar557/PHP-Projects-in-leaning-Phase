@@ -10,7 +10,7 @@ class Response
     public static function errors($code)
     {
         $errors = [
-            404 => 'Page not found',
+            404 => 'Sorry Page not found',
 
             403 => 'Unauthorized',
         ];

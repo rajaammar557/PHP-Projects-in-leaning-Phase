@@ -2,14 +2,21 @@
 
 namespace Http\Validations;
 
-use Core\ValidationException;
 use Core\Validator;
 
-class Notes extends Validation
+class NotesValidation extends Validation
 {
 
 	public function __construct(public array $attributes)
 	{
+		$this->errors['title'] =
+			Validator::required($attributes['title'], 'title') ??
+			Validator::max($attributes['title'], 55, 'title') ??
+			false;
+		if ($this->errors['title'] == false) {
+			unset($this->errors['title']);
+		}
+
 		$this->errors['body'] =
 			Validator::required($attributes['body'], 'body') ??
 			Validator::max($attributes['body'], 999, 'body') ??

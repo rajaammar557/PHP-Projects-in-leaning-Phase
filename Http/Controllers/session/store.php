@@ -1,11 +1,11 @@
 <?php
 
 use Core\Auth;
-use Http\Validations\LoginForm;
+use Http\Validations\SessionValidation;
 
 $errors = [];
 
-$form = LoginForm::validate($attributes = [
+$form = SessionValidation::validate($attributes = [
     'email' => $_POST['email'],
     'password' => $_POST['password']
 ]);

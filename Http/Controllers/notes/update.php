@@ -2,8 +2,7 @@
 
 use Core\App;
 use Core\Database;
-use Core\Validator;
-use Http\Validations\Notes;
+use Http\Validations\NotesValidation;
 
 $db = App::resolve(Database::class);
 
@@ -19,14 +18,16 @@ $note = $db->query(
 
 $errors = [];
 
-$form = Notes::validate($attributes = [
+$form = NotesValidation::validate($attributes = [
     'body' => $_POST['body'],
+    'title' => $_POST['title'],
 ]);
 
 authorize($note['user_id'] === $currentUserId);
 
-$db->query("UPDATE notes SET body = :body WHERE id = :id", [
+$db->query("UPDATE notes SET body = :body, title = :title WHERE id = :id", [
     'body' => $_POST['body'],
+    'title' => $_POST['title'],
     'id' => $_POST['id']
 ]);
 

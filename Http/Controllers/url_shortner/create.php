@@ -2,8 +2,8 @@
 
 use Core\Session;
 
-view("notes/create.view.php", [
-    'heading' => 'Create Note',
+view("url_shortner/create.view.php", [
+    'heading' => 'Create Short Link',
     'errors' => Session::get('errors'),
     'button' => 'Create'
 

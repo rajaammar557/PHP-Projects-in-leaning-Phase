@@ -3,10 +3,9 @@
 namespace Http\Validations;
 
 use Core\Validator;
-use Core\ValidationException;
 use Http\Validations\Validation;
 
-class Register extends Validation
+class RegisterationValidation extends Validation
 {
 
     protected $errors = [];

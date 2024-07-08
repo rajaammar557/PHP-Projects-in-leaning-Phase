@@ -2,7 +2,6 @@
 
 namespace Http\Validations;
 
-use Core\Validator;
 use Core\ValidationException;
 
 class Validation

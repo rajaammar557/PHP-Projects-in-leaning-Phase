@@ -2,11 +2,9 @@
 
 namespace Http\Validations;
 
-use Core\Auth;
-use Core\ValidationException;
 use Core\Validator;
 
-class LoginForm extends Validation
+class SessionValidation extends Validation
 {
 
 

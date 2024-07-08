@@ -2,23 +2,25 @@
 
 use Core\App;
 use Core\Database;
-use Http\Validations\Notes;
+use Http\Validations\NotesValidation;
 
 $db = App::resolve(Database::class);
 
 $errors = [];
 
 
-$form = Notes::validate($attributes = [
+$form = NotesValidation::validate($attributes = [
     'body' => $_POST['body'],
+    'title' => $_POST['title'],
 ]);
 
 
 $db->query(
-    "INSERT INTO notes(user_id, body) VALUES (:user_id, :body)",
+    "INSERT INTO notes(user_id, body, title) VALUES (:user_id, :body, :title)",
     [
         'user_id' => $_SESSION['user']['id'],
-        'body' => $_POST['body']
+        'body' => $_POST['body'],
+        'title' => $_POST['title']
     ]
 );
 redirect('/notes');
