@@ -14,8 +14,7 @@ This repository contains various PHP projects created during the learning phase.
    ```bash
    git clone https://github.com/your-username/php-projects-in-learning-phase.git
 If you want a better experience, consider renaming the directory to your preference:
-bash
-Copy code
+
 mv php-projects-in-learning-phase your-preferred-directory-name
 Setting Up the Development Environment
 Using XAMPP or WAMP
@@ -25,28 +24,26 @@ Start the Apache server from the XAMPP or WAMP control panel.
 
 Access the project by navigating to http://localhost/your-preferred-directory-name in your web browser.
 
-Using PHP Built-in Server
+## Using PHP Built-in Server
 Navigate to the project directory:
+   ```bash
+   php -S localhost:80 -t public
+   ```
 
-bash
-Copy code
-cd your-preferred-directory-name
-Start the PHP built-in server:
-
-bash
-Copy code
-php -S localhost:80 -t public
 If the above command does not work, create a .htaccess file in the root directory with the following content:
 
-apache
-Copy code
+### apache
+
+   ```bash
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ public/$1 [L]
-Restart the PHP built-in server.
+```
 
-Projects Overview
+## Restart the PHP built-in server.
+
+# Projects Overview
 Note Taker CRUD App
 Create, read, update, and delete personal notes.
 Simple and user-friendly interface.
@@ -57,4 +54,5 @@ Secure Authentication System
 Secure user authentication system.
 Includes features like user registration, login, and password management.
 Contributing
-Contributions are welcome! Feel free to submit issues or pull requests.
+
+## Contributions are welcome! Feel free to submit issues or pull requests.
