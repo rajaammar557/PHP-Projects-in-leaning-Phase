@@ -1,6 +1,6 @@
 # PHP Projects in Learning Phase
 
-##### I create simple porject that contain simple larvel funnlatity like routing, validations and helper functions
+##### I create simple porject that contain simple larvel funcnality like routing, validations and helper functions
 This repository contains various PHP projects created during the learning phase. The projects included are:
 
 1. **Note Taker CRUD App**: A simple application for creating, reading, updating, and deleting personal notes.
